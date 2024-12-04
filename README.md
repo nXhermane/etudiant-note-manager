@@ -54,7 +54,7 @@ Un projet en C++ développé sous Visual Studio Code  comme exercice pour début
    - Ouvrir le terminal intégré dans Visual Studio Code.
    - Lancer la commande suivante :
      ```bash
-      g++ -o main main.cpp fichiersource/*.cpp -std=c++11
+      g++ -o main mian.cpp fichierSources/*.cpp -I ./fichierDeDeclarations -std=c++11
      ./main
      ```
 ## **Utilisation**

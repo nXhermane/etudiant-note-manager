@@ -128,7 +128,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Exercice 1 c++.cpp" />
+    <ClCompile Include="mian.cpp" />
     <ClCompile Include="fichierSources\etudiantManager.cpp" />
   </ItemGroup>
   <ItemGroup>

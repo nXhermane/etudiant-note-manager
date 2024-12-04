@@ -5,7 +5,7 @@
 
 Etudiant creerUnEtudiant(int numeroDeLetudiant)
 {
-	std::cout << "Creation de L'etudiant n* " << numeroDeLetudiant << std::endl;
+	std::cout << "Creation de L'etudiant n° " << numeroDeLetudiant << std::endl;
 	Etudiant etudiant;
 	std::cin.ignore();
 	std::cout << "Entrez le nom de l'etudiant: ";
@@ -16,7 +16,7 @@ Etudiant creerUnEtudiant(int numeroDeLetudiant)
 	etudiant.notes = new float[etudiant.nombreDeNotes];
 	
 	for (int i = 0; i < etudiant.nombreDeNotes; i++) {
-		std::cout << "Entrez la note n^ " << i + 1 << ":";
+		std::cout << "Entrez la note n° " << i + 1 << ":";
 		std::cin >> etudiant.notes[i];
 	}
 
@@ -62,13 +62,13 @@ float findMaxNote(int nombreDeNotes, float* notes) {
 
 void gestionDesEtudiant() {
     int nombreDetudiants;
-    std::cout << "==== Bienvenue dans l'interface de gestion des étudiants ====" << std::endl;
-    std::cout << "Veuillez entrer le nombre d'étudiants que vous souhaitez gérer : ";
+    std::cout << "==== Bienvenue dans l'interface de gestion des etudiants ====" << std::endl;
+    std::cout << "Veuillez entrer le nombre d'etudiants que vous souhaitez gerer : ";
     std::cin >> nombreDetudiants;
 
     Etudiant* etudiants = new Etudiant[nombreDetudiants];
 
-    std::cout << "Création de " << nombreDetudiants << ((nombreDetudiants > 1) ? " étudiants" : " étudiant") << " : " << std::endl;
+    std::cout << "Creation de " << nombreDetudiants << ((nombreDetudiants > 1) ? " etudiants" : " etudiant") << " : " << std::endl;
     for (int i = 0; i < nombreDetudiants; i++) {
         etudiants[i] = creerUnEtudiant(i + 1);
     }
@@ -76,8 +76,8 @@ void gestionDesEtudiant() {
     bool continuer = true;
     while (continuer) {
         std::cout << "\n=== Menu ===" << std::endl;
-        std::cout << "y - Calculer la moyenne d'un étudiant." << std::endl;
-        std::cout << "m - Trouver la note maximale d'un étudiant." << std::endl;
+        std::cout << "y - Calculer la moyenne d'un etudiant." << std::endl;
+        std::cout << "m - Trouver la note maximale d'un etudiant." << std::endl;
         std::cout << "q - Quitter le programme." << std::endl;
 
         char command;
@@ -85,24 +85,24 @@ void gestionDesEtudiant() {
 
         switch (command) {
         case 'y': {
-            std::cout << "Entrez le numéro de l'étudiant : ";
+            std::cout << "Entrez le numero de l'etudiant : ";
             int numeroDeLetudiant;
             std::cin >> numeroDeLetudiant;
             Etudiant etudiant = getEtudiantByIndex(numeroDeLetudiant - 1, nombreDetudiants, etudiants);
             if (etudiant.nombreDeNotes > 0) {
                 float moyenne = calculDeLaMoyenne(etudiant.nombreDeNotes, etudiant.notes);
-                std::cout << "Moyenne de l'étudiant n* " << numeroDeLetudiant << " : " << moyenne << std::endl;
+                std::cout << "Moyenne de l'etudiant n° " << numeroDeLetudiant << " : " << moyenne << std::endl;
             }
         } break;
 
         case 'm': {
-            std::cout << "Entrez le numéro de l'étudiant : ";
+            std::cout << "Entrez le numero de l'etudiant : ";
             int numeroDeLetudiant;
             std::cin >> numeroDeLetudiant;
             Etudiant etudiant = getEtudiantByIndex(numeroDeLetudiant - 1, nombreDetudiants, etudiants);
             if (etudiant.nombreDeNotes > 0) {
                 float maxNote = findMaxNote(etudiant.nombreDeNotes, etudiant.notes);
-                std::cout << "Note maximale de l'étudiant n* " << numeroDeLetudiant << " : " << maxNote << std::endl;
+                std::cout << "Note maximale de l'etudiant n° " << numeroDeLetudiant << " : " << maxNote << std::endl;
             }
         } break;
 
@@ -111,7 +111,7 @@ void gestionDesEtudiant() {
             break;
 
         default:
-            std::cout << "Commande inconnue. Veuillez réessayer." << std::endl;
+            std::cout << "Commande inconnue. Veuillez reessayer." << std::endl;
         }
     }
 
@@ -124,7 +124,7 @@ void gestionDesEtudiant() {
 
 Etudiant getEtudiantByIndex(int index, int nombreDetudiants, Etudiant* etudiants) {
 	if (index < 0 || index >= nombreDetudiants) {
-		std::cerr << "L'étudiant n° " << index + 1 << " n'existe pas." << std::endl;
+		std::cerr << "L'etudiant n° " << index + 1 << " n'existe pas." << std::endl;
 		return Etudiant{};
 	}
 	return etudiants[index];
